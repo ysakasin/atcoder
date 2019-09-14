@@ -9,11 +9,12 @@
 
 using namespace std;
 constexpr long long int INF = std::numeric_limits<long long int>::max();
+constexpr long long int NINF = std::numeric_limits<long long int>::min();
 #define int long long int
 
 void solve() {
-  // int x;
-  // cout << endl;
+  int N;
+  cin >> N;
 }
 
 signed main() {

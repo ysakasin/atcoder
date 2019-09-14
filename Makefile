@@ -25,9 +25,9 @@ clean:
 
 .PHONY: setup
 setup:
-	cp tmpl.cpp a.cpp
-	cp tmpl.cpp b.cpp
-	cp tmpl.cpp c.cpp
-	cp tmpl.cpp d.cpp
-	cp tmpl.cpp e.cpp
-	cp tmpl.cpp f.cpp
+	cp lib/tmpl.cpp a.cpp
+	cp lib/tmpl.cpp b.cpp
+	cp lib/tmpl.cpp c.cpp
+	cp lib/tmpl.cpp d.cpp
+	cp lib/tmpl.cpp e.cpp
+	cp lib/tmpl.cpp f.cpp
