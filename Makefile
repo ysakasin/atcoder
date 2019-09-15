@@ -31,3 +31,4 @@ setup:
 	cp lib/tmpl.cpp d.cpp
 	cp lib/tmpl.cpp e.cpp
 	cp lib/tmpl.cpp f.cpp
+	make

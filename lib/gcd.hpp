@@ -2,7 +2,7 @@ int gcd(int a, int b) {
   if (a < b) {
     int tmp = a;
     a = b;
-    b = a;
+    b = tmp;
   }
 
   while (b != 0) {
