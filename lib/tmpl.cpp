@@ -7,10 +7,10 @@
 #include <set>
 #include <vector>
 
-using namespace std;
-constexpr long long int INF = std::numeric_limits<long long int>::max();
-constexpr long long int NINF = std::numeric_limits<long long int>::min();
 #define int long long int
+constexpr int INF = std::numeric_limits<int>::max();
+constexpr int NINF = std::numeric_limits<int>::min();
+using namespace std;
 
 void solve() {
   int N;
