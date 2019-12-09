@@ -1,45 +1,43 @@
 #include <algorithm>
-#include <climits>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
 #include <vector>
 
-using namespace std;
-constexpr long long int INF = std::numeric_limits<long long int>::max();
-constexpr long long int NINF = std::numeric_limits<long long int>::min();
-#define int long long int
+class comb {
+private:
+  static const long long MAX = 1000000 + 1;    // limit<k>::max() + 1
+  static const long long MOD = 1000000000 + 7; // 10**9 + 7
 
-const int MAX = 3 * 100000;
-const int MOD = 1000000007;
+  std::vector<long long> fac, finv, inv;
 
-int fac[MAX], finv[MAX], inv[MAX];
-
-void COMinit() {
-  fac[0] = fac[1] = 1;
-  finv[0] = finv[1] = 1;
-  inv[1] = 1;
-  for (int i = 2; i < MAX; i++) {
-    fac[i] = fac[i - 1] * i % MOD;
-    inv[i] = MOD - inv[MOD % i] * (MOD / i) % MOD;
-    finv[i] = finv[i - 1] * inv[i] % MOD;
+public:
+  comb() : fac(MAX, 0), finv(MAX, 0), inv(MAX, 0) {
+    fac[0] = fac[1] = 1;
+    finv[0] = finv[1] = 1;
+    inv[1] = 1;
+    for (long long i = 2; i < MAX; i++) {
+      fac[i] = fac[i - 1] * i % MOD;
+      inv[i] = MOD - inv[MOD % i] * (MOD / i) % MOD;
+      finv[i] = finv[i - 1] * inv[i] % MOD;
+    }
   }
-}
 
-int COM(int n, int k) {
-  if (n < k)
-    return 0;
-  if (n < 0 || k < 0)
-    return 0;
-  return fac[n] * (finv[k] * finv[n - k] % MOD) % MOD;
-}
+  long long calc(long long n, long long k) {
+    if (k < n) {
+      return 0;
+    }
+    if (n < 0 || k < 0) {
+      return 0;
+    }
+
+    return fac[k] * (finv[n] * finv[k - n] % MOD) % MOD;
+  }
+};
+
+#include <iostream>
 
 signed main() {
   // 前処理
-  COMinit();
+  comb comb;
 
   // 計算例
-  cout << COM(100000, 50000) << endl;
+  std::cout << comb.calc(100000, 50000) << std::endl;
 }
